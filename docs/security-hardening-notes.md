@@ -14,6 +14,14 @@
 
 ## pidfd-pinned process management (proposed, not implemented)
 
+> Note: this observation was submitted to Google's vulnerability intake
+> (issuetracker 561676647) for assessment prior to this documentation;
+> Google's triage directed publication through this repository. The
+> unotify/io_uring observational-limits section below was included in
+> the same query.
+
+
+
 nsjail's parent performs /proc/<pid>-addressed operations on children
 across the fork->handshake window using string-addressed procfs paths:
 setgroups/uid_map/gid_map writes (user.cc), /proc/<pid>/syscall fd
