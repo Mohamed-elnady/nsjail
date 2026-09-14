@@ -4,3 +4,7 @@ config.pb.cc
 unotify/unotify.pb.h
 unotify/unotify.pb.cc
 nsjail
+nsjail_db/
+fuzz/nstun_fuzz
+fuzz/kafel_fuzz
+nsjail-asan
