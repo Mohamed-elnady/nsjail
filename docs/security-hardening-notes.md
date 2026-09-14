@@ -1,16 +1,16 @@
 # Security hardening notes (Patch Rewards)
 
-## Compiler hardening (implemented on this branch)
+## Compiler hardening (added in the hardening PR)
 - -fstack-protector-strong, -D_FORTIFY_SOURCE=2 (CXXFLAGS)
 - -Wl,-z,relro -Wl,-z,now (Full RELRO)
 - Verified: BIND_NOW present, __stack_chk_fail referenced, jail functional.
 
-## Fuzzing (implemented on this branch)
+## Fuzzing (added in the fuzzing PR)
 - make asan / make fuzz-nstun / make fuzz-kafel
 - fuzz/ contains both harnesses and curated seed corpora.
 - kafel requires CC=clang for instrumentation; recipe included.
-- Known gap: kafel sub-build should `make clean` first for guaranteed
-  instrumented state.
+- The fuzz-kafel recipe forces a clean kafel rebuild before the instrumented
+  build, guaranteeing the instrumented state.
 
 ## pidfd-pinned process management (proposed, not implemented)
 
